@@ -12403,6 +12403,7 @@ __metadata:
     boolean: ^3.0.1
     graphql: ^15.7.2
     invariant: ^2.2.4
+    inversify: ^6.0.1
     lodash: ^4.17.4
     nanoid: ^3.1.30
     react: 17.0.2
@@ -25237,6 +25238,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"inversify@npm:^6.0.1":
+  version: 6.0.1
+  resolution: "inversify@npm:6.0.1"
+  checksum: b6c9b56ef7817a71534b06101c2b0a0130b67c47a769f58794d9c0643591a83ac02be30a48c00cb729c0c83ece96dde369c419d48c32d0201c6cc7407629fbc5
+  languageName: node
+  linkType: hard
+
 "ip-regex@npm:^2.1.0":
   version: 2.1.0
   resolution: "ip-regex@npm:2.1.0"
@@ -34672,6 +34680,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"reflect-metadata@npm:^0.1.13":
+  version: 0.1.13
+  resolution: "reflect-metadata@npm:0.1.13"
+  checksum: 798d379a7b6f6455501145419505c97dd11cbc23857a386add2b9ef15963ccf15a48d9d15507afe01d4cd74116df8a213247200bac00320bd7c11ddeaa5e8fb4
+  languageName: node
+  linkType: hard
+
 "refractor@npm:^2.4.1":
   version: 2.10.1
   resolution: "refractor@npm:2.10.1"
@@ -35440,6 +35455,7 @@ __metadata:
     node-fetch: ^2.6.1
     pm2: ^4.5.4
     prettier: ^2.3.2
+    reflect-metadata: ^0.1.13
     rimraf: ^3.0.2
     rxjs: ^6.5.5
     semver: ^6.3.0

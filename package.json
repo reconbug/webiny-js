@@ -98,6 +98,7 @@
     "node-fetch": "^2.6.1",
     "pm2": "^4.5.4",
     "prettier": "^2.3.2",
+    "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^6.5.5",
     "semver": "^6.3.0",
