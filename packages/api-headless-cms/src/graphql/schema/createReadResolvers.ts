@@ -2,6 +2,7 @@ import { CmsModel, CmsFieldTypePlugins, CmsContext } from "~/types";
 import { resolveGet } from "./resolvers/read/resolveGet";
 import { resolveList } from "./resolvers/read/resolveList";
 import { createFieldResolversFactory } from "./createFieldResolvers";
+import { commonFieldResolvers } from "./resolvers/commonFieldResolvers";
 
 interface CreateReadResolversParams {
     models: CmsModel[];
@@ -32,7 +33,10 @@ export const createReadResolvers: CreateReadResolvers = ({ models, model, fieldT
     const fieldResolvers = createFieldResolvers({
         graphQLType: model.singularApiName,
         fields: model.fields,
-        isRoot: true
+        isRoot: true,
+        extraResolvers: {
+            ...commonFieldResolvers()
+        }
     });
 
     return {

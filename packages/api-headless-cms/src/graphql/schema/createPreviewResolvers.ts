@@ -1,7 +1,8 @@
-import { CmsModel, CmsFieldTypePlugins, CmsContext } from "~/types";
+import { CmsModel, CmsFieldTypePlugins, CmsContext, CmsEntry } from "~/types";
 import { resolveGet } from "./resolvers/preview/resolveGet";
 import { resolveList } from "./resolvers/preview/resolveList";
 import { createFieldResolversFactory } from "./createFieldResolvers";
+import { commonFieldResolvers } from "~/graphql/schema/resolvers/commonFieldResolvers";
 
 interface CreateReadResolversParams {
     models: CmsModel[];
@@ -36,13 +37,23 @@ export const createPreviewResolvers: CreateReadResolvers = ({
     const fieldResolvers = createFieldResolvers({
         graphQLType: model.singularApiName,
         fields: model.fields,
-        isRoot: true
+        isRoot: true,
+        extraResolvers: {
+            entryId: (entry: CmsEntry) => {
+                return commonFieldResolvers().entryId(entry);
+            }
+        }
     });
 
     return {
         Query: {
             [`get${model.singularApiName}`]: resolveGet({ model }),
             [`list${model.pluralApiName}`]: resolveList({ model })
+        },
+        [model.singularApiName]: {
+            modelId: () => {
+                return model.modelId;
+            }
         },
         ...fieldResolvers
     };

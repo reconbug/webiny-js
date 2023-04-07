@@ -52,6 +52,10 @@ const createTypeDefsForTemplates = ({
             template.gqlTypeName
         ].join("_");
 
+        if (field.fieldId === "reference") {
+            console.log("STARTING");
+        }
+
         const result = createTypeFromFields({
             models,
             typeOfType,

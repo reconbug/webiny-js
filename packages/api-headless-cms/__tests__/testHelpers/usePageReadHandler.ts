@@ -48,6 +48,16 @@ const pageFields = `
             __typename
         }
     }
+    reference {
+        ...on ${singularPageApiName}_Reference_Author {
+            author {
+                id
+                entryId
+                modelId
+                fullName
+            }
+        }
+    }
 `;
 
 const errorFields = `

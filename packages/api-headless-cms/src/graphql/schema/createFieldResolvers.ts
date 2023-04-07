@@ -75,10 +75,14 @@ export const createFieldResolversFactory = (factoryParams: CreateFieldResolversF
                 ? createResolver({ graphQLType, models, model, field, createFieldResolvers })
                 : null;
 
+            if (field.fieldId === "author" || model.modelId === "author") {
+                console.log("starting with author field");
+            }
             /**
              * When fieldResolver is false it will completely skip adding field fieldId into the resolvers.
              * This is to fix the breaking of GraphQL schema.
              */
+            console.log(fieldResolver, createResolver);
             if (fieldResolver === false) {
                 continue;
             } else if (typeof fieldResolver === "function") {
@@ -92,6 +96,9 @@ export const createFieldResolversFactory = (factoryParams: CreateFieldResolversF
             // TODO @ts-refactor figure out types for parameters
             // @ts-ignore
             fieldResolvers[fieldId] = async (parent, args, context: CmsContext, info) => {
+                if (model.modelId === "author") {
+                    console.log(fieldId);
+                }
                 /**
                  * This is required because due to ref field can be requested without the populated data.
                  * At that point there is no .values  no fieldId property on the parent

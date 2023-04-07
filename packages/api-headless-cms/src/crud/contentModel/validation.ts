@@ -88,7 +88,9 @@ const fieldSchema = zod.object({
         .array(
             zod.object({
                 name: shortString,
-                message: optionalShortString.default("Value is required."),
+                message: optionalNullishShortString.transform(value => {
+                    return value || "Value is required.";
+                }),
                 settings: zod
                     .object({})
                     .passthrough()
@@ -106,7 +108,9 @@ const fieldSchema = zod.object({
         .array(
             zod.object({
                 name: shortString,
-                message: optionalShortString.default("Value is required."),
+                message: optionalNullishShortString.transform(value => {
+                    return value || "Value is required.";
+                }),
                 settings: zod
                     .object({})
                     .passthrough()
